@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstProject.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace FirstProject
 
         public void AddPerson(Person person)
         {
+            if (person.Age <= 0)
+                throw new InvalidAgeException("Not allowed age");
+
             _peopleCollection.Add(person);
         }
 
