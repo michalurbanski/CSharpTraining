@@ -67,6 +67,28 @@ namespace FirstProjectUnitTests
             // Assert
             Assert.AreEqual(exception.Message, "Custom message");
         }
-    
+
+        [TestMethod]
+        public void Add_Person_WithIncorrectAge_ThrowsException_TestPropertiesSerialization()
+        {
+            // Arrange
+            InvalidAgeException exception = new InvalidAgeException();
+            exception.Age = -2; 
+
+            // Act
+            using (Stream s = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(s, exception);
+
+                s.Position = 0; // Reset stream position 
+                exception = (InvalidAgeException)formatter.Deserialize(s);
+            }
+
+            // Assert
+            Assert.AreEqual(-2, exception.Age);  // Fails when deserialization is not implemented
+        }
+
     }
+
 }
