@@ -38,15 +38,15 @@ namespace FirstProject
 
             Console.WriteLine("All people");
             foreach (Person person in people)
-            {
                 Console.WriteLine(person);
-            }
 
             Console.WriteLine("\r\nUnder age people");
             foreach (Person person in people.GetUnderAgePeople())
-            {
                 Console.WriteLine(person);
-            }
+
+            Console.WriteLine("\r\nTake people until under aged");
+            foreach(Person person in people.GetPeopleUntilUnderAged())
+                Console.WriteLine(person);
         }
     }
 }

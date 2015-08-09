@@ -23,8 +23,21 @@ namespace FirstProject
         {
             foreach(Person person in _peopleCollection)
             {
-                if (person.Age <= 21)
+                if (person.Age < 21)
                     yield return person; 
+            }
+        }
+
+        public IEnumerable<Person> GetPeopleUntilUnderAged()
+        {
+            foreach (Person person in _peopleCollection)
+            {
+                if (person.Age < 21)
+                {
+                    yield break; 
+                }
+
+                yield return person;
             }
         }
 
