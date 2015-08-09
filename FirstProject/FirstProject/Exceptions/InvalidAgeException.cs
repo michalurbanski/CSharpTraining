@@ -31,7 +31,16 @@ namespace FirstProject.Exceptions
 
         }
 
-        protected InvalidAgeException(SerializationInfo info, StreamingContext context) : base(info, context)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        /// <remarks>This constructor is used for deserialization when no custom properties used. 
+        /// Commenting out this constructor will throw an exception during deserialization attempt. 
+        /// </remarks>
+        protected InvalidAgeException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
         {
 
         }

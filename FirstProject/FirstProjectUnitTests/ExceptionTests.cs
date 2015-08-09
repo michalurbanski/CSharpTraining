@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FirstProject.Exceptions;
 using FirstProject;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace FirstProjectUnitTests
 {
@@ -46,5 +48,25 @@ namespace FirstProjectUnitTests
             Assert.IsTrue(false); 
         }
 
+        [TestMethod]
+        public void Add_Person_WithIncorrectAge_ThrowsException_TestBasicSerialization()
+        {
+            // Arrange
+            InvalidAgeException exception = new InvalidAgeException("Custom message");
+
+            // Act
+            using (Stream s = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(s, exception);
+
+                s.Position = 0; // Reset stream position 
+                exception = (InvalidAgeException)formatter.Deserialize(s);
+            }
+
+            // Assert
+            Assert.AreEqual(exception.Message, "Custom message");
+        }
+    
     }
 }
