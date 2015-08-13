@@ -11,7 +11,7 @@ namespace FirstProject.Attributes
     /// 
     /// </summary>
     /// <remarks>Custom attribute has to be public</remarks>
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple=true, Inherited=true)]
     public class ImportantInformationAttribute : Attribute
     {
         private SecurityLevelEnum _securityLevel;

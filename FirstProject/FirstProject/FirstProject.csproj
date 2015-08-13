@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ImportantInformationAttribute.cs" />
+    <Compile Include="Attributes\ImportantInformationHelper.cs" />
     <Compile Include="Enums\SecurityLevelEnum.cs" />
     <Compile Include="Exceptions\InvalidAgeException.cs" />
     <Compile Include="PeopleCollection.cs" />
