@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstProject.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace FirstProject
 {
     public class Person
     {
+        [ImportantInformation(Enums.SecurityLevelEnum.Administrator, Version=1)]
         public string Name { get; set; }
         public int Age { get; set; }
 

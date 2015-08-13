@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ImportantInformationAttribute.cs" />
+    <Compile Include="Enums\SecurityLevelEnum.cs" />
     <Compile Include="Exceptions\InvalidAgeException.cs" />
     <Compile Include="PeopleCollection.cs" />
     <Compile Include="Person.cs" />
